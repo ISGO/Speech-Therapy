@@ -5,22 +5,23 @@
 .panel
   .panel-body
     .row
-      .col-md-offset-3.col-md-6
+      .col-md-offset-4.col-md-4
         .panel.panel-default
           .panel-heading.text-center משתמש קיים
           .panel-body
-            .form-group
-              .input-group
-                %label{:class => "sr-only", :for => "email"} Email address
-                %input{:type => "email", :class => "form-control", :id => "email", :placeholder => 'כתובת דוא"ל...'}
-                .input-group-addon
-                  <i class="glyphicon glyphicon-envelope"></i>
-            .form-group
-              .input-group
-                %label{:class => "sr-only", :for => "email"} Email address
-                %input{:type => "password", :class => "form-control", :id => "password", :placeholder => 'סיסמה...'}
-                .input-group-addon 
-                  <i class="glyphicon glyphicon-asterisk"></i>
+            .col-md-offset-1.col-md-10
+              .form-group
+                .input-group
+                  %label{:class => "sr-only", :for => "email"} Email address
+                  %input{:type => "email", :class => "form-control", :id => "email", :placeholder => 'כתובת דוא"ל...', :autofocus => 'true'}
+                  .input-group-addon
+                    <i class="glyphicon glyphicon-envelope"></i>
+              .form-group
+                .input-group
+                  %label{:class => "sr-only", :for => "email"} Email address
+                  %input{:type => "password", :class => "form-control", :id => "password", :placeholder => 'סיסמה...'}
+                  .input-group-addon 
+                    <i class="glyphicon glyphicon-asterisk"></i>
 
-            %button{:type => "button", :class => "btn btn-primary btn-lg btn-block"} התחבר למערכת
+              %button{:type => "button", :class => "btn btn-primary btn-lg btn-block"} התחבר למערכת
           .panel-footer.text-center= link_to 'משתמש חדש?', '#register'
