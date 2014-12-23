@@ -3,7 +3,7 @@
   %head
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    %title SpeachTherapy
+    %title SpeechTherapy
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
     = csrf_meta_tags
@@ -15,6 +15,11 @@
       - elsif flash[:warning]
         #warning.message= flash[:warning]
       /insert menu
-      = render 'menu/menu'
+      %header
+        = render 'menu/menu'
 
-      = yield
+      %wrapper
+        = yield
+
+      %footer
+        = render 'footer/footer'
