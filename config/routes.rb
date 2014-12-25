@@ -18,6 +18,7 @@ SpeechTherapy::Application.routes.draw do
   resources :login
   resources :menu
   resources :footer
+  resources :therapist
 
   # Sample resource route with options:
   #   resources :products do
