@@ -3,7 +3,15 @@ class LoginController < ApplicationController
 		@backFromPost = false
 		#@isPassCorrect = false
 
-		#if back from submit
+		doLogin
+		
+		#draw index again
+		render('index');
+	end
+
+private 
+	def doLogin
+	#if back from submit
 		if request.post?
 			@backFromPost = true
 			#check if empty or nil
@@ -34,23 +42,6 @@ class LoginController < ApplicationController
 				end 
 			end
 		end
-		
-		#draw index again
-		render('index');
 	end
 
-	def doLogin
-		
-
-		##unless SpeechTherapist.find(params[:email]) != nil
-			##redirect_to('/')
-		##end
-
-		##@user = SpeechTherapist.find(params[:email])
-
-		##if @user.nil?
-		##	redirect_to('/')
-		##end
-		
-	end
 end
