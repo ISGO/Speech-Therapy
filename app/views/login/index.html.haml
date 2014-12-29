@@ -10,18 +10,26 @@
           .panel-heading.text-center משתמש קיים
           .panel-body
             .col-md-offset-1.col-md-10
-              .form-group
-                .input-group
-                  %label{:class => "sr-only", :for => "email"} Email address
-                  %input{:type => "email", :class => "form-control", :id => "email", :placeholder => 'כתובת דוא"ל...', :autofocus => 'true'}
-                  .input-group-addon
-                    <i class="glyphicon glyphicon-envelope"></i>
-              .form-group
-                .input-group
-                  %label{:class => "sr-only", :for => "email"} Email address
-                  %input{:type => "password", :class => "form-control", :id => "password", :placeholder => 'סיסמה...'}
-                  .input-group-addon 
-                    <i class="glyphicon glyphicon-asterisk"></i>
+              = form_tag :controller => 'login', :action => 'index' do
+                .form-group{:class => (@isIdEmpty ? "has-error" : ""), :class => (@doesIdExists ? "" : "has-warning")}
+                  .input-group
+                    %label{:class => "sr-only", :for => :id} Therapit License
+                    = text_field_tag :id, @idNumber, class: 'form-control' , placeholder: 'מספר רישיון...', autofocus: 'true'
+                    .input-group-addon
+                      <i class="glyphicon glyphicon-envelope"></i>
+                  .alert.alert-danger{:role => "alert", :class => (@isIdEmpty ? '' : 'hide')} חובה להזין מספר רישיון
+                  .alert.alert-warning{:role => "alert", :class => (@doesIdExists ? 'hide' : '')} לא קיים במערכת
+                
+                .form-group{:class => (@isPassEmpty ? "has-error" : "")}
+                  .input-group
+                    %label{:class => "sr-only", :for => "email"} Email address
+                    = password_field_tag :password, nil, class: 'form-control', placeholder: 'סיסמה...'
+                    .input-group-addon 
+                      <i class="glyphicon glyphicon-asterisk"></i>
+                  .alert.alert-danger{:role => "alert", :class => (@isPassEmpty ? '' : 'hide')} חובה להזין סיסמה
 
-              %button{:type => "button", :class => "btn btn-primary btn-lg btn-block"} התחבר למערכת
+                = button_tag "התחבר למערכת", class: 'btn btn-primary btn-lg btn-block'
+              
           .panel-footer.text-center= link_to 'משתמש חדש?', '#register'
+          -unless @user.nil?
+            = @user.mail
