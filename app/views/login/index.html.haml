@@ -11,13 +11,14 @@
           .panel-body
             .col-md-offset-1.col-md-10
               = form_tag :controller => 'login', :action => 'index' do
-                .form-group{:class => (@isIdEmpty ? "has-error" : "")}
+                .form-group{:class => (@isIdEmpty ? "has-error" : ""), :class => (@doesIdExists ? "" : "has-warning")}
                   .input-group
                     %label{:class => "sr-only", :for => :id} Therapit License
                     = text_field_tag :id, @idNumber, class: 'form-control' , placeholder: 'מספר רישיון...', autofocus: 'true'
                     .input-group-addon
                       <i class="glyphicon glyphicon-envelope"></i>
                   .alert.alert-danger{:role => "alert", :class => (@isIdEmpty ? '' : 'hide')} חובה להזין מספר רישיון
+                  .alert.alert-warning{:role => "alert", :class => (@doesIdExists ? 'hide' : '')} לא קיים במערכת
                 
                 .form-group{:class => (@isPassEmpty ? "has-error" : "")}
                   .input-group

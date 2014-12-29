@@ -9,8 +9,10 @@ class LoginController < ApplicationController
 		#if id is not empty save id
 		unless @isIdEmpty
 			@idNumber = params[:id]
-		end
 
+			#check if user exsits
+			@doesIdExists = SpeechTherapist.exists?(@idNumber)
+		end
 	end
 		
 		#draw index again
