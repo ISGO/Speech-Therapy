@@ -1,19 +1,39 @@
 class LoginController < ApplicationController
 	def index
-	#if back from submit
-	if request.post?
-		#check if empty or nil
-		@isIdEmpty = params[:id].blank?
-		@isPassEmpty = params[:password].blank?
+		@backFromPost = false
+		#@isPassCorrect = false
 
-		#if id is not empty save id
-		unless @isIdEmpty
-			@idNumber = params[:id]
+		#if back from submit
+		if request.post?
+			@backFromPost = true
+			#check if empty or nil
+			@isIdEmpty = params[:id].blank?
+			@isPassEmpty = params[:password].blank?
 
-			#check if user exsits
-			@doesIdExists = SpeechTherapist.exists?(@idNumber)
+			#if id is not empty save id
+			unless @isIdEmpty
+				@idNumber = params[:id]
+
+				#check if user exsits
+				@doesIdExists = SpeechTherapist.exists?(@idNumber)
+
+				if @doesIdExists
+					@user = SpeechTherapist.find(@idNumber)
+
+					unless @isPassEmpty
+						password = params[:password]
+						
+						if @user.password != password
+							@isPassCorrect = false
+						else
+							#authintication passed
+							@isPassCorrect = true
+							#redirect_to('/therapit')
+						end
+					end
+				end 
+			end
 		end
-	end
 		
 		#draw index again
 		render('index');
