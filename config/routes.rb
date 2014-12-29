@@ -31,7 +31,7 @@ SpeechTherapy::Application.routes.draw do
   resources :therapist do
     collection do
       get 'addPatient'
-      get 'test'
+      post 'doAddPatient'
     end
   end
   # Sample resource route with options:

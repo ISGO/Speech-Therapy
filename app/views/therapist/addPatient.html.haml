@@ -6,7 +6,7 @@
     %h1 פתיחת תיק למטופל חדש
     .row
       .col-md-5.col-md-offset-1
-        %form
+        = form_tag :controller => 'therapist', :action => 'doAddPatient' do
           .form-group{:class=>"form-horizontal"}
             .input-group
               %label{:for => "id_label"} מספר ת"ז:
@@ -35,4 +35,4 @@
             .input-group
               %label{:for => "address_label"} כתובת:
               %input{:type => "text", :class => "form-control", :id => "address", :placeholder => 'כתובת'}
-          %button{:type => "button", :class => "btn btn-primary btn-lg btn-block"} הוסף מטופל
+          = button_tag "הוסף מטופל", class: 'btn btn-primary btn-lg btn-block'
