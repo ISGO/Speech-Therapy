@@ -24,6 +24,7 @@ SpeechTherapy::Application.routes.draw do
 
   resources :menu
   resources :footer
+  resources :about
 
   # Sample resource route with options:
   #   resources :products do

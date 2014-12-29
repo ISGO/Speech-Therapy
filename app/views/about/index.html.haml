@@ -1,0 +1,50 @@
+= render partial: 'menu/menu', locals: {active: "about"}
+.container
+  .row
+    .col-md-12.text-center
+      .h1 אודות
+  .row
+    .col-md-2.col-md-offset-2
+      .thumbnail.text-center
+        .bg-danger
+          = image_tag('about/guy.jpg', class: "responsive img-circle img-thumbnail")
+          .caption
+            .h3 גיא שמעוני
+            %p קצת על גיא
+            %p
+              %a.btn.btn-danger{:role => 'button', :href => '', :target => '_blank'}
+                linkedIn
+                %span.glyphicon.glyphicon-user
+    .col-md-2
+      .thumbnail.text-center
+        .bg-success
+          = image_tag('about/sarah.jpg', class: "responsive img-circle img-thumbnail")
+          .caption
+            .h3 שרה גבריאל
+            %p קצת על שרה
+            %p
+              %a.btn.btn-success{:role => 'button', :href => "/", :target => '_blank'}
+                linkedIn
+                %span.glyphicon.glyphicon-user
+    .col-md-2
+      .thumbnail.text-center
+        .bg-info
+          = image_tag('about/ohad.jpg', class: "responsive img-circle img-thumbnail")
+          .caption
+            .h3 אוהד בן נון
+            %p קצת על אוהד
+            %p
+              %a.btn.btn-primary{:role => 'button', :href => 'http://il.linkedin.com/in/ohadbn', :target => '_blank'}
+                linkedIn
+                %span.glyphicon.glyphicon-user
+    .col-md-2
+      .thumbnail.text-center
+        .bg-warning
+          = image_tag('about/itzik.jpg', class: "responsive img-circle img-thumbnail")
+          .caption
+            .h3 איציק יששכר
+            %p קצת על איציק
+            %p
+              %a.btn.btn-warning{:role => 'button', :href => '', :target => '_blank'}
+                linkedIn
+                %span.glyphicon.glyphicon-user

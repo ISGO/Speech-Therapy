@@ -1,5 +1,4 @@
-.container.theme-showcase{:role => "main"}
-
+= render partial: 'menu/menu', locals: {active: "login"}
 .jumbotron.text-center
   %h1 ברוכים הבאים ל-SpeechTherapy
 .panel
@@ -17,7 +16,7 @@
                     %label{:class => "sr-only", :for => :id} Therapit License
                     = text_field_tag :id, @idNumber, class: 'form-control' , placeholder: 'מספר רישיון...', autofocus: 'true'
                     .input-group-addon
-                      <i class="glyphicon glyphicon-envelope"></i>
+                      <i class="glyphicon glyphicon-briefcase"></i>
         
                   .alert.alert-warning{:role => "alert", :class => ("hide" unless (@isIdEmpty && @backFromPost))} חובה להזין מספר רישיון
 
