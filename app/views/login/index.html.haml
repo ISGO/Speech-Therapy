@@ -10,18 +10,22 @@
           .panel-heading.text-center משתמש קיים
           .panel-body
             .col-md-offset-1.col-md-10
-              .form-group
-                .input-group
-                  %label{:class => "sr-only", :for => "email"} Email address
-                  %input{:type => "email", :class => "form-control", :id => "email", :placeholder => 'כתובת דוא"ל...', :autofocus => 'true'}
-                  .input-group-addon
-                    <i class="glyphicon glyphicon-envelope"></i>
-              .form-group
-                .input-group
-                  %label{:class => "sr-only", :for => "email"} Email address
-                  %input{:type => "password", :class => "form-control", :id => "password", :placeholder => 'סיסמה...'}
-                  .input-group-addon 
-                    <i class="glyphicon glyphicon-asterisk"></i>
+              = form_tag :controller => 'login', :action => 'doLogin' do
+                .form-group
+                  .input-group
+                    %label{:class => "sr-only", :for => "email"} Email address
+                    = text_field_tag :email, nil, class: 'form-control' , placeholder: 'כתובת דוא"ל...', autofocus: 'true', required: 'true'
+                    .input-group-addon
+                      <i class="glyphicon glyphicon-envelope"></i>
+                .form-group
+                  .input-group
+                    %label{:class => "sr-only", :for => "email"} Email address
+                    = password_field_tag :password, nil, class: 'form-control', placeholder: 'סיסמה...', required: 'true'
+                    .input-group-addon 
+                      <i class="glyphicon glyphicon-asterisk"></i>
 
-              %button{:type => "button", :class => "btn btn-primary btn-lg btn-block"} התחבר למערכת
+                = button_tag "התחבר למערכת", class: 'btn btn-primary btn-lg btn-block'
+              
           .panel-footer.text-center= link_to 'משתמש חדש?', '#register'
+          -unless @user.nil?
+            = @user.mail
