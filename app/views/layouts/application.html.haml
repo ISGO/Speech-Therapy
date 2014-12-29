@@ -14,12 +14,8 @@
         #notice.message= flash[:notice]
       - elsif flash[:warning]
         #warning.message= flash[:warning]
-      /insert menu
-      %header
-        = render 'menu/menu'
-
-      %wrapper
-        = yield
+      
+      = yield
 
       %footer
         = render 'footer/footer'

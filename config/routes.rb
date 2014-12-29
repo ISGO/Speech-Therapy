@@ -15,15 +15,10 @@ SpeechTherapy::Application.routes.draw do
 
   root :to => 'login#index'
 
-  resources :login do
-    collection do
-      get 'index'
-      post 'doLogin'
-    end
-  end
-
+  resources :login
   resources :menu
   resources :footer
+  resources :about
 
   # Sample resource route with options:
   #   resources :products do
