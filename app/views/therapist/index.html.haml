@@ -1,6 +1,6 @@
-= render partial: 'menu/menu', locals: {active: "login"}
+= render partial: 'menu/menu', locals: {active: "therapist"}
 
-%h1 שלום משתמש
+%h1 שלום #{@user.firstName}
 
 .row
   .col-md-3
