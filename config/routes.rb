@@ -17,16 +17,11 @@ SpeechTherapy::Application.routes.draw do
 
   root :to => 'login#index'
 
-  resources :login do
-    collection do
-      get 'index'
-      post 'doLogin'
-    end
-  end
-
+  resources :login
   resources :menu
   resources :footer
   
+  resources :about
 
   resources :therapist do
     collection do
