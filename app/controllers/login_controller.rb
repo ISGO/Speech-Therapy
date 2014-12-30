@@ -4,9 +4,6 @@ class LoginController < ApplicationController
 		#@isPassCorrect = false
 
 		doLogin
-		
-		#draw index again
-		render('index');
 	end
 
 private 
@@ -36,11 +33,14 @@ private
 						else
 							#authintication passed
 							@isPassCorrect = true
-							#redirect_to('/therapit')
+							redirect_to therapist_index_path
 						end
 					end
 				end 
 			end
+		else
+			#draw index again
+			render('index');
 		end
 	end
 
