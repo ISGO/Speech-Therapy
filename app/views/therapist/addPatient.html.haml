@@ -4,38 +4,39 @@
 .container.theme-showcase{:role => "main"}
 
 .row
-  .col-md-12
+  .col-md-8.col-md-offset-2
     %h1 פתיחת תיק למטופל חדש
-    .row
-      .col-md-5.col-md-offset-1
-        = form_tag patient_index_path do
+    
+    = form_tag patient_index_path, class: 'form-horizontal' do
 
-          .form-group{:class=>"form-horizontal"}
-            .input-group
-              %label{:for => "id_label"} מספר ת"ז:
-              %input{:type => "text", :class => "form-control", :id => "id", :placeholder => 'תעודת זהות', :autofocus => 'true'}
-          .form-group{:class=>"form-horizontal"}
-            .input-group
-              %label{:for => "fname_label"} שם פרטי:
-              %input{:type => "text", :class => "form-control", :id => "fname", :placeholder => 'שפ פרטי'}
-          .form-group{:class=>"form-horizontal"}
-            .input-group
-              %label{:for => "lname_label"} שם משפחה:
-              %input{:type => "text", :class => "form-control", :id => "lname", :placeholder => 'שם משפחה'}
-          .form-group{:class=>"form-horizontal"}
-            .input-group
-              %label{:for => "email_label"} מייל:
-              %input{:type => "email", :class => "form-control", :id => "email", :placeholder => 'מייל'}
-          .form-group{:class=>"form-horizontal"}
-            .input-group
-              %label{:for => "hmo_label"} קופת חולים:
-              %input{:type => "text", :class => "form-control", :id => "hmo", :placeholder => 'קופת חולים'}
-          .form-group{:class=>"form-horizontal"}
-            .input-group
-              %label{:for => "phone_label"} מספר טלפון:
-              %input{:type => "text", :class => "form-control", :id => "phone", :placeholder => 'מספר טלפון'}
-          .form-group{:class=>"form-horizontal"}
-            .input-group
-              %label{:for => "address_label"} כתובת:
-              %input{:type => "text", :class => "form-control", :id => "address", :placeholder => 'כתובת'}
+      .form-group
+        %label{:for => "id", :class => 'control-label col-md-2'} מספר ת"ז:
+        .col-md-8
+          %input{:type => "text", :class => "form-control", :id => "id", :placeholder => 'תעודת זהות', :autofocus => 'true'}
+      .form-group
+        %label{:for => "fname", :class => 'control-label col-md-2'} שם פרטי:
+        .col-md-8
+          %input{:type => "text", :class => "form-control", :id => "fname", :placeholder => 'שפ פרטי'}
+      .form-group
+        %label{:for => "lname", :class => 'control-label col-md-2'} שם משפחה:
+        .col-md-8
+          %input{:type => "text", :class => "form-control", :id => "lname", :placeholder => 'שם משפחה'}
+      .form-group
+        %label{:for => "email", :class => 'control-label col-md-2'} מייל:
+        .col-md-8
+          %input{:type => "email", :class => "form-control", :id => "email", :placeholder => 'מייל'}
+      .form-group
+        %label{:for => "hmo", :class => 'control-label col-md-2'} קופת חולים:
+        .col-md-8
+          %input{:type => "text", :class => "form-control", :id => "hmo", :placeholder => 'קופת חולים'}
+      .form-group
+        %label{:for => "phone", :class => 'control-label col-md-2'} מספר טלפון:
+        .col-md-8
+          %input{:type => "text", :class => "form-control", :id => "phone", :placeholder => 'מספר טלפון'}
+      .form-group
+        %label{:for => "address", :class => 'control-label col-md-2'} כתובת:
+        .col-md-8
+          %input{:type => "text", :class => "form-control", :id => "address", :placeholder => 'כתובת'}
+      .form-group
+        .col-md-6.col-md-offset-2   
           = button_tag "הוסף מטופל", class: 'btn btn-primary btn-lg btn-block'
