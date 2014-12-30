@@ -9,4 +9,12 @@ class TherapistController < ApplicationController
 		@user = SpeechTherapist.find(session[:user_id])
 	end
 
+	def addPatient
+		if session[:user_id].blank?
+			redirect_to login_index_path
+		end
+
+		@user = SpeechTherapist.find(session[:user_id])
+	end
+
 end
