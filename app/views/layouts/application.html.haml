@@ -14,8 +14,8 @@
         #notice.message= flash[:notice]
       - elsif flash[:warning]
         #warning.message= flash[:warning]
-      
-      = yield
+      .container
+        = yield
 
-      %footer
-        = render 'footer/footer'
+        %footer
+          = render 'footer/footer'

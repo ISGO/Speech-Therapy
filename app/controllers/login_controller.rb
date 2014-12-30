@@ -3,10 +3,19 @@ class LoginController < ApplicationController
 		@backFromPost = false
 		#@isPassCorrect = false
 
-		doLogin
+		unless session[:user_id].blank?
+			redirect_to therapist_index_path
+		else
+			doLogin
+		end
 	end
 
-private 
+	def doLogout
+		session.clear
+		redirect_to login_index_path
+	end
+
+private
 	def doLogin
 	#if back from submit
 		if request.post?
@@ -33,6 +42,7 @@ private
 						else
 							#authintication passed
 							@isPassCorrect = true
+							session[:user_id] = @user.id
 							redirect_to therapist_index_path
 						end
 					end
