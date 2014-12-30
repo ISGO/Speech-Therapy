@@ -30,7 +30,7 @@ SpeechTherapy::Application.routes.draw do
 
   resources :therapist do
     collection do
-      get 'addPatient'
+      get 'index'
       post 'doAddPatient'
     end
   end
