@@ -1,0 +1,27 @@
+<h1>הגיינה קולית</h1>
+
+<table>
+  <tr>
+    <th>Id </th>
+    <th>כותרת </th>
+    <th>לינק pdf </th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @voice_hygienes.each do |voice_hygiene| %>
+  <tr>
+    <td><%= voice_hygiene.id %></td>
+    <td><%= voice_hygiene.title %></td>
+    <td><%= voice_hygiene.path_pdf %></td>
+    <td><%= link_to 'הצג', voice_hygiene %></td>
+    <td><%= link_to 'עריכה', edit_voice_hygiene_path(voice_hygiene) %></td>
+    <td><%= link_to 'מחיקה', voice_hygiene, method: :delete, data: { confirm: 'האם הינך בטוח?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'הוסף חדש', new_voice_hygiene_path %>

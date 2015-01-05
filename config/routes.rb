@@ -1,4 +1,7 @@
 SpeechTherapy::Application.routes.draw do
+  resources :voice_hygienes
+
+
   get "therapist/newPatient"
 
   # The priority is based upon order of creation:
@@ -34,6 +37,7 @@ SpeechTherapy::Application.routes.draw do
   resources :therapist do
     collection do
       get 'addPatient'
+      get 'myFiles'
     end
   end
   # Sample resource route with options:

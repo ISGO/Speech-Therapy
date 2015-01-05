@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 therapist = SpeechTherapist.create([{id:1, firstName:'Rahel', lastName:'Darmon', password:'1', mail:'rahel@gmail.com'}])
 patients = Patient.create([{id:11, firstName:'patient1', lastName:'patient1', password:'1', mail:'patient1@gmail.com', hmo:'clalit', therapist_id:1, address:'Jerusalem', phone:'050'}])
+to_do = ToDoBehavior.create([{id:1, description:'drink water', time:'60 min'}, {id:2, description:'speak loudly', time:'every day'}])

@@ -11,28 +11,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141225091754) do
+ActiveRecord::Schema.define(:version => 20150105113807) do
 
   create_table "patients", :force => true do |t|
-    t.string   "id", :null => false
-    t.string   "firstName", :null => false
-    t.string   "lastName", :null => false
+    t.string   "firstName"
+    t.string   "lastName"
     t.string   "password"
-    t.string   "mail", :null => false
+    t.string   "mail"
     t.string   "hmo"
-    t.string   "phone"
-    t.string   "address"
     t.integer  "therapist_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "address"
+    t.string   "phone"
   end
 
   create_table "speech_therapists", :force => true do |t|
-    t.string   "therapist_id", :null => false
-    t.string   "firstName", :null => false
-    t.string   "lastName", :null => false
-    t.string   "password", :null => false
-    t.string   "mail", :null => false
+    t.string   "firstName"
+    t.string   "lastName"
+    t.string   "password"
+    t.string   "mail"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "to_do_behaviors", :force => true do |t|
+    t.string   "description"
+    t.string   "time"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "voice_hygienes", :force => true do |t|
+    t.string   "title"
+    t.string   "path_pdf"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
