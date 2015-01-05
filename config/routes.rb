@@ -1,4 +1,7 @@
 SpeechTherapy::Application.routes.draw do
+  resources :theoretical_backgrounds
+
+
   get "therapist/newPatient"
 
   # The priority is based upon order of creation:

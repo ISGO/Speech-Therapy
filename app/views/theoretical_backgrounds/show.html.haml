@@ -1,0 +1,16 @@
+<!--%p#notice= notice-->
+%p
+  %b Id:
+  = @theoretical_background.id
+%p
+  %b Link:
+  = @theoretical_background.link
+%p
+  %b Pdf:
+  = @theoretical_background.pdf
+%p
+  %b Title:
+  = @theoretical_background.title
+= link_to 'ערוך', edit_theoretical_background_path(@theoretical_background)
+|
+\#{link_to 'חזור', theoretical_backgrounds_path}
