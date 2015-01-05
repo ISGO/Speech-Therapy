@@ -1,0 +1,31 @@
+%p#notice= notice
+%p
+  %b ת"ז:
+  = @patient.id
+%p
+  %b שם פרטי:
+  = @patient.firstName
+%p
+  %b שם משפחה:
+  = @patient.lastName
+%p
+  %b מייל:
+  = @patient.mail
+%p
+  %b מטפל:
+  = @patient.therapist_id
+%p
+  %b כתובת:
+  = @patient.address
+%p
+  %b קופת חולים:
+  = @patient.hmo
+%p
+  %b טלפון:
+  = @patient.phone
+%p
+  %b סיסמא:
+  = @patient.password
+= link_to 'ערוך', edit_patient_path(@patient)
+|
+\#{link_to 'חזור', patients_path}

@@ -1,0 +1,2 @@
+module VoiceHygienesHelper
+end

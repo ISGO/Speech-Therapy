@@ -1,0 +1,31 @@
+%h1 רשימת מטופלים
+%table
+  %tr
+    %th ת"ז
+    %th שם פרטי
+    %th שם משפחה
+    %th מייל
+    %th מטפל
+    %th כתובת
+    %th קופת חולים
+    %th טלפון
+    %th סיסמא
+    %th
+    %th
+    %th
+  - @patients.each do |patient|
+    %tr
+      %td= patient.id
+      %td= patient.firstName
+      %td= patient.lastName
+      %td= patient.mail
+      %td= patient.therapist_id
+      %td= patient.address
+      %td= patient.hmo
+      %td= patient.phone
+      %td= patient.password
+      %td= link_to 'הצג', patient
+      %td= link_to 'ערוך', edit_patient_path(patient)
+      %td= link_to 'מחק', patient, method: :delete, data: { confirm: 'האם אתה בטוח?' }
+%br/
+= link_to 'מטופל חדש', new_patient_path
