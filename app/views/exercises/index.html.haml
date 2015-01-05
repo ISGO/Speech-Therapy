@@ -1,0 +1,29 @@
+= render partial: 'menu/menu', locals: {active: "exercises"}
+
+%h1 
+  רשימת תרגילים 
+  %small
+    = link_to 'תרגיל חדש', new_exercise_path, class: 'btn btn-success btn-sm', role: 'button'
+
+%table{:class => 'table table-hover text-center'}
+  %tr
+    %th.text-center כותרת
+    %th.text-center מספר תרגיל
+    %th.text-center סוג
+    %th.text-center פתרון וידאו
+    %th.text-center פעולות
+  - @exercises.each do |exercise|
+    %tr
+      %td= exercise.title
+      %td= exercise.exNumber
+      %td= exercise.exType
+      %td
+        -if exercise.recVideo
+          %i.glyphicon.glyphicon-ok.text-success
+        -else
+          %i.glyphicon.glyphicon-remove.text-danger
+      %td
+        = link_to 'הצג', exercise, class: 'btn btn-default btn-sm', role: 'button'
+        = link_to 'ערוך', edit_exercise_path(exercise), class: 'btn btn-primary btn-sm', role: 'button'
+        = link_to 'מחק', exercise, method: :delete, data: { confirm: 'למחוק תרגיל?' }, class: 'btn btn-danger btn-sm', role: 'button'
+%br/
