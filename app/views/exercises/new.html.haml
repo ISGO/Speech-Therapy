@@ -1,0 +1,11 @@
+= render partial: 'menu/menu', locals: {active: "exercises"}
+
+.row
+  .col-md-4.col-md-offset-4
+    .thumbnail
+      .caption
+        %h3.text-center
+          תרגיל חדש
+          %small
+            = link_to 'חזור', exercises_path, class: 'btn btn-default'
+        %p= render 'form'
