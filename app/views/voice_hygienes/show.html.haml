@@ -1,0 +1,13 @@
+/ <p id="notice"><haml:loud> notice </haml:loud></p>
+%p
+  %b Id:
+  = @voice_hygiene.id
+%p
+  %b כותרת:
+  = @voice_hygiene.title
+%p
+  %b לינק ל- pdf:
+  = @voice_hygiene.path_pdf
+= link_to 'עריכה', edit_voice_hygiene_path(@voice_hygiene)
+|
+\#{link_to 'הקודם', voice_hygienes_path}

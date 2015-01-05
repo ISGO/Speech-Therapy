@@ -11,11 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
+ActiveRecord::Schema.define(:version => 20150105110532) do
 
-ActiveRecord::Schema.define(:version => 20150105102658) do
-
- create_table "exercises", :force => true do |t|
+  create_table "exercises", :force => true do |t|
     t.string   "title"
     t.integer  "exNumber"
     t.string   "exType"
@@ -25,11 +23,10 @@ ActiveRecord::Schema.define(:version => 20150105102658) do
   end
 
   create_table "patients", :force => true do |t|
-    t.string   "id"
     t.string   "firstName"
     t.string   "lastName"
     t.string   "mail"
-    t.string  "therapist_id"
+    t.integer  "therapist_id"
     t.string   "address"
     t.string   "hmo"
     t.string   "phone"
@@ -46,7 +43,6 @@ ActiveRecord::Schema.define(:version => 20150105102658) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
 
   create_table "theoretical_backgrounds", :force => true do |t|
     t.string   "link"

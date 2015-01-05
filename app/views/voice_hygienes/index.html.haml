@@ -1,0 +1,19 @@
+%h1 הגיינה קולית
+%table
+  %tr
+    %th Id
+    %th כותרת
+    %th לינק pdf
+    %th
+    %th
+    %th
+  - @voice_hygienes.each do |voice_hygiene|
+    %tr
+      %td= voice_hygiene.id
+      %td= voice_hygiene.title
+      %td= voice_hygiene.path_pdf
+      %td= link_to 'הצג', voice_hygiene
+      %td= link_to 'עריכה', edit_voice_hygiene_path(voice_hygiene)
+      %td= link_to 'מחיקה', voice_hygiene, method: :delete, data: { confirm: 'האם הינך בטוח?' }
+%br/
+= link_to 'הוסף חדש', new_voice_hygiene_path

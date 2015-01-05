@@ -1,33 +1,32 @@
 = render partial: 'menu/menu', locals: {active: "therapist_files"}
-.container
-  .row
-    .col-md-12.text-center
-      .h1 התקיות שלי
-      %br
-      %br
-  .row
-    .col-md-3.col-md-offset-1
-      .thumbnail.text-center
-        .bg-danger
-          .caption
-            .h3 הגיינה קולית
-            %br
-            %a.btn.btn-danger{:role => 'button', :href => voice_hygienes_path}
-              פתח
-    .col-md-3
-      .thumbnail.text-center
-        .bg-warning
-          .caption
-            .h3 רקע תאורטי
-            %br
-            %a.btn.btn-danger{:role => 'button', :href => "/", :target => '_blank'}
-              פתח
-    .col-md-3
-      .thumbnail.text-center
-        .bg-info
-          .caption
-            .h3 תרגילים
-            %br
-            %a.btn.btn-danger{:role => 'button', :href => "/", :target => '_blank'}
-              פתח
-    
+
+.row
+  .col-md-8.col-md-offset-2.text-center
+    .h1 התקיות שלי
+    %br
+    %br
+    .row
+      .col-md-4
+        .thumbnail.text-center
+          .bg-danger
+            .caption
+              .h3 הגיינה קולית
+              %br
+              %a.btn.btn-danger{:role => 'button', :href => voice_hygienes_path}
+                פתח
+      .col-md-4
+        .thumbnail.text-center
+          .bg-warning
+            .caption
+              .h3 רקע תאורטי
+              %br
+              %a.btn.btn-danger{:role => 'button', :href => theoretical_backgrounds_path}
+                פתח
+      .col-md-4
+        .thumbnail.text-center
+          .bg-info
+            .caption
+              .h3 תרגילים
+              %br
+              %a.btn.btn-danger{:role => 'button', :href => exercises_path}
+                פתח     
