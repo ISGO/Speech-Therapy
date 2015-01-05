@@ -42,4 +42,12 @@ ActiveRecord::Schema.define(:version => 20150105102658) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "theoretical_backgrounds", :force => true do |t|
+    t.string   "link"
+    t.string   "pdf"
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
 end

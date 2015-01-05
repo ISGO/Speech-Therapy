@@ -1,0 +1,21 @@
+%h1 רקע תאורטי
+%table
+  %tr
+    %th Id
+    %th לינק
+    %th Pdf
+    %th כותרת
+    %th
+    %th
+    %th
+  - @theoretical_backgrounds.each do |theoretical_background|
+    %tr
+      %td= theoretical_background.id
+      %td= theoretical_background.link
+      %td= theoretical_background.pdf
+      %td= theoretical_background.title
+      %td= link_to 'הצג', theoretical_background
+      %td= link_to 'ערוך', edit_theoretical_background_path(theoretical_background)
+      %td= link_to 'מחק', theoretical_background, method: :delete, data: { confirm: 'האם אתה בטוח?' }
+%br/
+= link_to 'הוספת רקע תאורטי', new_theoretical_background_path
