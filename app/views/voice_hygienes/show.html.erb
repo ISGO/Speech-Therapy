@@ -1,0 +1,20 @@
+<!--<p id="notice"><%= notice %></p> -->
+
+<p>
+  <b>Id:</b>
+  <%= @voice_hygiene.id %>
+</p>
+
+<p>
+  <b>כותרת:</b>
+  <%= @voice_hygiene.title %>
+</p>
+
+<p>
+  <b>לינק ל- pdf:</b>
+  <%= @voice_hygiene.path_pdf %>
+</p>
+
+
+<%= link_to 'עריכה', edit_voice_hygiene_path(@voice_hygiene) %> |
+<%= link_to 'הקודם', voice_hygienes_path %>

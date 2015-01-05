@@ -17,4 +17,7 @@ class TherapistController < ApplicationController
 		@user = SpeechTherapist.find(session[:user_id])
 	end
 
+	def myFiles
+	end
+
 end

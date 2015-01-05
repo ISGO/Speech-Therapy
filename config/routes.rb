@@ -15,7 +15,6 @@ SpeechTherapy::Application.routes.draw do
   #   resources :products
 
   root :to => 'login#index'
-  get "therapist/newPatient"
 
   resources :login do
     collection do
@@ -25,20 +24,22 @@ SpeechTherapy::Application.routes.draw do
   
   resources :menu
   resources :footer
-
-  resources :patient
-
   resources :about
-
-  resources :theoretical_backgrounds
-
-  resources :exercises
 
   resources :therapist do
     collection do
       get 'addPatient'
+      get 'myFiles'
     end
   end
+  resources :exercises
+  resources :theoretical_backgrounds
+  resources :voice_hygienes
+  
+  get "therapist/newPatient"
+
+
+  resources :patient
   # Sample resource route with options:
   #   resources :products do
   #     member do
