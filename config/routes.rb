@@ -1,4 +1,7 @@
 SpeechTherapy::Application.routes.draw do
+  resources :patients
+
+
   get "therapist/newPatient"
 
   # The priority is based upon order of creation:
@@ -25,8 +28,6 @@ SpeechTherapy::Application.routes.draw do
   
   resources :menu
   resources :footer
-
-  resources :patient
 
   resources :about
 

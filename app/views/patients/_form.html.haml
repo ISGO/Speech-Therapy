@@ -1,0 +1,49 @@
+.row
+  .col-md-8.col-md-offset-2
+    = form_for(@patient) do |f|
+      - if @patient.errors.any?
+        #error_explanation
+          %h2
+            = pluralize(@patient.errors.count, "error")
+            prohibited this patient from being saved:
+          %ul
+            - @patient.errors.full_messages.each do |msg|
+              %li= msg
+      .field
+        = f.label 'ת"ז'
+        %br/
+        = f.text_field :id
+      .field
+        = f.label 'שם פרטי'
+        %br/
+        = f.text_field :firstName
+      .field
+        = f.label 'שם משפחה'
+        %br/
+        = f.text_field :lastName
+      .field
+        = f.label 'מייל'
+        %br/
+        = f.text_field :mail
+      .field
+        = f.label 'ת"ז מטפל'
+        %br/
+        = f.text_field :therapist_id
+      .field
+        = f.label 'כתובת'
+        %br/
+        = f.text_field :address
+      .field
+        = f.label 'קופת חולים'
+        %br/
+        = f.text_field :hmo
+      .field
+        = f.label 'טלפון'
+        %br/
+        = f.text_field :phone
+      .field
+        = f.label 'סיסמא'
+        %br/
+        = f.text_field :password
+      .actions
+        = f.submit "הוסף מטופל"
