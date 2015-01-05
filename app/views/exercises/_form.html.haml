@@ -1,0 +1,35 @@
+= form_for(@exercise, {class: 'form-horizontal'}) do |f|
+  - if @exercise.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@exercise.errors.count, "error")
+        prohibited this exercise from being saved:
+      %ul
+        - @exercise.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group.row
+    = f.label 'כותרת', class: 'control-label col-md-2', for: :title
+    .col-md-10
+      = f.text_field :title, :class => "form-control"
+
+  .form-group.row
+    = f.label 'מספר תרגיל', class: 'control-label col-md-2', for: :exNumber
+    .col-md-10
+      = f.number_field :exNumber, :class => "form-control"
+    
+
+  .form-group.row
+    = f.label 'סוג תרגיל', class: 'control-label col-md-2', for: :exType
+    .col-md-10
+      = f.text_field :exType, :class => "form-control"
+    
+
+  .form-group.row
+    = f.label 'הגשת וידאו?', class: 'control-label col-md-2', for: :revVideo
+    .col-md-4
+      = f.check_box :recVideo, :class => "form-control pull-right"
+    
+
+  .actions.text-center
+    = f.submit 'בצע', class: 'btn btn-success'

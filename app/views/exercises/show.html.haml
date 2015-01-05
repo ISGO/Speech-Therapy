@@ -1,0 +1,27 @@
+= render partial: 'menu/menu', locals: {active: "exercises"}
+
+.row
+  .col-md-4.col-md-offset-4
+    .thumbnail
+      .caption
+        %h3.text-center
+          %b
+            = @exercise.title
+        %p
+          %b מספר תרגיל
+          = @exercise.exNumber
+        %p
+          %b סוג תרגיל
+          = @exercise.exType
+        %p
+          %b הגשת וידאו
+          -if @exercise.recVideo
+            %i.glyphicon.glyphicon-ok.text-success
+          -else
+            %i.glyphicon.glyphicon-remove.text-danger
+
+        %p.text-center
+          = link_to 'ערוך', edit_exercise_path(@exercise), class: 'btn btn-primary', role: 'button'
+          \#{link_to 'חזור', exercises_path, class: 'btn btn-default', role: 'button'}        
+
+        %p#notice.text-center{:class => ('alert alert-success' unless notice.blank?)}= notice
