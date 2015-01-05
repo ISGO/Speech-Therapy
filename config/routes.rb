@@ -27,17 +27,14 @@ SpeechTherapy::Application.routes.draw do
 
   resources :therapist do
     collection do
-      get 'addPatient'
       get 'myFiles'
     end
   end
   resources :exercises
   resources :theoretical_backgrounds
   resources :voice_hygienes
-  
-  get "therapist/newPatient"
 
-  resources :patient
+  resources :patients
   # Sample resource route with options:
   #   resources :products do
   #     member do
