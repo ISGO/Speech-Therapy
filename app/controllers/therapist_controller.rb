@@ -12,14 +12,6 @@ class TherapistController < ApplicationController
 		render('myFiles')
 	end
 
-	def addPatient
-		if session[:user_id].blank?
-			redirect_to login_index_path
-		end
-
-		@user = SpeechTherapist.find(session[:user_id])
-	end
-
 	def myFiles
 		if session[:user_id].blank?
 			redirect_to login_index_path
