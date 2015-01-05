@@ -4,11 +4,13 @@ class CreatePatients < ActiveRecord::Migration
       t.integer :id
       t.string :firstName
       t.string :lastName
-      t.string :password
       t.string :mail
-      t.string :hmo
       t.integer :therapist_id
-
+      t.string :address
+      t.string :hmo
+      t.string :phone
+      t.string :password
+      
       t.timestamps
     end
   end
