@@ -11,6 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 
 ActiveRecord::Schema.define(:version => 20150105102658) do
 
@@ -24,16 +25,17 @@ ActiveRecord::Schema.define(:version => 20150105102658) do
   end
 
   create_table "patients", :force => true do |t|
+    t.string   "id"
     t.string   "firstName"
     t.string   "lastName"
-    t.string   "password"
     t.string   "mail"
+    t.string  "therapist_id"
+    t.string   "address"
     t.string   "hmo"
-    t.integer  "therapist_id"
+    t.string   "phone"
+    t.string   "password"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-    t.string   "address"
-    t.string   "phone"
   end
 
   create_table "speech_therapists", :force => true do |t|
