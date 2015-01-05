@@ -1,5 +1,9 @@
 SpeechTherapy::Application.routes.draw do
+<<<<<<< HEAD
   resources :exercises
+=======
+  resources :theoretical_backgrounds
+>>>>>>> 442f510e74aa09e30d0d07dc5d850d75f5a35a1b
 
 
   get "therapist/newPatient"
