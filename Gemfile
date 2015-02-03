@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.18'
 gem 'table_print'
 gem 'html2haml'
+gem 'rails_12factor'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
