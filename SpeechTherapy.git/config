@@ -1,0 +1,9 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+[remote "origin"]
+	fetch = +refs/*:refs/*
+	mirror = true
+	url = https://github.com/ISGO/SpeechTherapy.git
+	pushurl = https://github.com/SarahGabriel/appVoice.git

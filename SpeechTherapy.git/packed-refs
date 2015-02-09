@@ -1,0 +1,20 @@
+# pack-refs with: peeled 
+8a26adeccd8235b28d25d4f0f35097b56140ca14 refs/heads/Guy
+ba215cd7de77734a7effd0c30519c74ea3b3dbb9 refs/heads/Itzik
+5c2d74a04188c7b05c2078f7dad4fd974ba0d468 refs/heads/Ohad
+91e155ba9095134e3de46abfbbc3a291c32f72e0 refs/heads/Sarah
+ba215cd7de77734a7effd0c30519c74ea3b3dbb9 refs/heads/master
+65ecbfa55c2aab800189fe9a859212aeb67a21aa refs/pull/1/head
+8a26adeccd8235b28d25d4f0f35097b56140ca14 refs/pull/10/head
+3b9fd949f227e09c052506abff97e428c7329279 refs/pull/11/head
+0d578d64b61f833da63be1b7311b9402df04dbab refs/pull/12/head
+5c2d74a04188c7b05c2078f7dad4fd974ba0d468 refs/pull/13/head
+7a07c54fbd9a22c2ad98219197c6cfdf9a4e6b24 refs/pull/2/head
+69203cda2c377175416e247c79a435829a00d225 refs/pull/3/head
+a56e36e0f9cfe0be2154415e2575e88561fc2806 refs/pull/4/head
+045e53a9bc91c39b5883b7448c6b74d2752f2fe5 refs/pull/5/head
+77f2a05b3405a9edc808630ed1c766fb8bfa14cd refs/pull/6/head
+4ea29d6cc7e590626f3e97d364aefde7a60edbc0 refs/pull/7/head
+e17560892f40d50aa59b7fa14b84e89f63313a1e refs/pull/8/head
+ef0e91dcb97406021f769885fb29b1556e8bf668 refs/pull/9/head
+4a9fbc4b7c7b09ebda6d392438b6439021f69286 refs/tags/iteration1-1
