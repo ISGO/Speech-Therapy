@@ -1,31 +1,34 @@
-%p#notice= notice
-%p
-  %b ת"ז:
-  = @patient.id
-%p
-  %b שם פרטי:
-  = @patient.firstName
-%p
-  %b שם משפחה:
-  = @patient.lastName
-%p
-  %b מייל:
-  = @patient.mail
-%p
-  %b מטפל:
-  = @patient.therapist_id
-%p
-  %b כתובת:
-  = @patient.address
-%p
-  %b קופת חולים:
-  = @patient.hmo
-%p
-  %b טלפון:
-  = @patient.phone
-%p
-  %b סיסמא:
-  = @patient.password
-= link_to 'ערוך', edit_patient_path(@patient)
-|
-\#{link_to 'חזור', patients_path}
+= render partial: 'menu/menu', locals: {active: "patients"}
+
+.row
+  .col-md-4.col-md-offset-4
+    .thumbnail
+      .caption
+        %h3.text-center
+          %b
+          = @patient.firstName 
+          = @patient.lastName
+        %p
+          %b ת"ז
+          = @patient.id
+        %p
+          %b מייל
+          = @patient.mail
+        %p
+          %b כתובת
+          = @patient.address
+        %p
+          %b טלפון
+          = @patient.phone
+        %p
+          %b קופת חולים
+          = @patient.hmo
+        %p
+          %b סיסמא
+          = @patient.password
+
+        %p.text-center
+          = link_to 'ערוך', edit_patient_path(@patient), class: 'btn btn-primary', role: 'button'
+          \#{link_to 'חזור', patients_path, class: 'btn btn-default', role: 'button'}        
+
+        %p#notice.text-center{:class => ('alert alert-success' unless notice.blank?)}= notice

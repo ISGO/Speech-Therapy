@@ -1,19 +1,25 @@
-%h1 הגיינה קולית
-%table
+= render partial: 'menu/menu', locals: {active: "voice_hygienes"}
+
+%h1 
+  הגיינה קולית
+  %h2
+    רשימת קבצים 
+    %small
+      = link_to 'הוסף קובץ', new_voice_hygiene_path, class: 'btn btn-success btn-sm', role: 'button'
+
+%table{:class => 'table table-hover text-center'}
   %tr
-    %th Id
-    %th כותרת
-    %th לינק pdf
-    %th
-    %th
-    %th
+    %th.text-center ID
+    %th.text-center כותרת
+    %th.text-center לינק קובץ
+    
   - @voice_hygienes.each do |voice_hygiene|
     %tr
       %td= voice_hygiene.id
       %td= voice_hygiene.title
       %td= voice_hygiene.path_pdf
-      %td= link_to 'הצג', voice_hygiene
-      %td= link_to 'עריכה', edit_voice_hygiene_path(voice_hygiene)
-      %td= link_to 'מחיקה', voice_hygiene, method: :delete, data: { confirm: 'האם הינך בטוח?' }
+      %td
+        = link_to 'הצג', voice_hygiene, class: 'btn btn-default btn-sm', role: 'button'
+        = link_to 'ערוך', edit_voice_hygiene_path(voice_hygiene), class: 'btn btn-primary btn-sm', role: 'button'
+        = link_to 'מחק', voice_hygiene, method: :delete, data: { confirm: 'האם הינך בטוח?' }, class: 'btn btn-danger btn-sm', role: 'button'
 %br/
-= link_to 'הוסף חדש', new_voice_hygiene_path

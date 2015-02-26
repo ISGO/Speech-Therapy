@@ -1,9 +1,11 @@
 = render partial: 'menu/menu', locals: {active: "exercises"}
 
 %h1 
-  רשימת תרגילים 
-  %small
-    = link_to 'תרגיל חדש', new_exercise_path, class: 'btn btn-success btn-sm', role: 'button'
+  תרגילים 
+  %h2
+    רשימת תרגילים
+    %small
+      = link_to 'תרגיל חדש', new_exercise_path, class: 'btn btn-success btn-sm', role: 'button'
 
 %table{:class => 'table table-hover text-center'}
   %tr
