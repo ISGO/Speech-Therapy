@@ -38,7 +38,7 @@ group :production do
 end
 
 
-gem 'jquery-rails'
+#gem 'jquery-rails'
 gem 'pg'
 
 # To use ActiveModel has_secure_password
