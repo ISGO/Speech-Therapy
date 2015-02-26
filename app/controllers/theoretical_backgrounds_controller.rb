@@ -42,8 +42,19 @@ class TheoreticalBackgroundsController < ApplicationController
   # POST /theoretical_backgrounds
   # POST /theoretical_backgrounds.json
   def create
-    @theoretical_background = TheoreticalBackground.new(params[:theoretical_background])
+    file_name =  params[:theoretical_background][:pdf].original_filename
+    directory = "public/data/theoretical"
+    # create the file path
+    path = File.join(directory, file_name)
 
+    uploaded_io = params[:theoretical_background][:pdf]
+    File.open(path, 'wb') do |file|
+      file.write(uploaded_io.read)
+    end
+
+    params[:theoretical_background][:pdf] = uploaded_io.original_filename
+
+    @theoretical_background = TheoreticalBackground.new(params[:theoretical_background])
     respond_to do |format|
       if @theoretical_background.save
         format.html { redirect_to @theoretical_background, notice: 'רקע טאורתי חדש הוסף בהצלחה.' }

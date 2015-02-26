@@ -18,8 +18,10 @@
     %tr
       %td= theoretical_background.id
       %td= theoretical_background.title
-      %td= theoretical_background.pdf
-      %td= theoretical_background.link
+      %td
+        = link_to 'מסמך', "/data/theoretical/#{theoretical_background.pdf}", target: '_blank'
+      %td
+        = link_to 'וידאו', theoretical_background.link, target: '_blank'
       %td
         = link_to 'הצג', theoretical_background, class: 'btn btn-default btn-sm', role: 'button'
         = link_to 'ערוך', edit_theoretical_background_path(theoretical_background), class: 'btn btn-primary btn-sm', role: 'button'

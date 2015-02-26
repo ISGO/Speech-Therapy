@@ -41,7 +41,32 @@ class VoiceHygienesController < ApplicationController
   # POST /voice_hygienes
   # POST /voice_hygienes.json
   def create
+    uploaded_io = params[:voice_hygiene][:path_pdf]
+
+    unless uploaded_io.blank?
+
+      file_name =  params[:voice_hygiene][:path_pdf].original_filename
+      directory = "public/data/voice_hygiene"
+
+      # create the file path
+      path = File.join(directory, file_name)
+
+      params[:voice_hygiene][:path_pdf] = uploaded_io.original_filename
+    else
+      params[:voice_hygiene][:path_pdf] = ''
+    end
+
+    
     @voice_hygiene = VoiceHygiene.new(params[:voice_hygiene])
+
+    if @voice_hygiene.invalid?
+      render('new')
+      return
+    end
+
+    File.open(path, 'wb') do |file|
+      file.write(uploaded_io.read)
+    end
 
     respond_to do |format|
       if @voice_hygiene.save
