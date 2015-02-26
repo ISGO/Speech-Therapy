@@ -1,13 +1,20 @@
-/ <p id="notice"><haml:loud> notice </haml:loud></p>
-%p
-  %b Id:
-  = @voice_hygiene.id
-%p
-  %b כותרת:
-  = @voice_hygiene.title
-%p
-  %b לינק ל- pdf:
-  = @voice_hygiene.path_pdf
-= link_to 'עריכה', edit_voice_hygiene_path(@voice_hygiene)
-|
-\#{link_to 'הקודם', voice_hygienes_path}
+= render partial: 'menu/menu', locals: {active: "voice_hygiene"}
+
+.row
+  .col-md-4.col-md-offset-4
+    .thumbnail
+      .caption
+        %h3.text-center
+          %b
+            = @voice_hygiene.title
+        %p
+          %b מספר משימה
+          = @voice_hygiene.id
+        %p
+          %b קובץ 
+          = @voice_hygiene.path_pdf
+        %p.text-center
+          = link_to 'ערוך', edit_voice_hygiene_path(@voice_hygiene), class: 'btn btn-primary', role: 'button'
+          \#{link_to 'חזור', voice_hygienes_path, class: 'btn btn-default', role: 'button'}        
+
+        %p#notice.text-center{:class => ('alert alert-success' unless notice.blank?)}= notice

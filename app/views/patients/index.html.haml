@@ -1,31 +1,33 @@
-%h1 רשימת מטופלים
-%table
+
+= render partial: 'menu/menu', locals: {active: "patients"}
+
+%h1 
+  מטופלים 
+  %small
+    = link_to 'מטופל חדש', new_patient_path, class: 'btn btn-success btn-sm', role: 'button'
+
+%table{:class => 'table table-hover text-center'}
   %tr
-    %th ת"ז
-    %th שם פרטי
-    %th שם משפחה
-    %th מייל
-    %th מטפל
-    %th כתובת
-    %th קופת חולים
-    %th טלפון
-    %th סיסמא
-    %th
-    %th
-    %th
+    %th.text-center ת"ז
+    %th.text-center שם פרטי
+    %th.text-center שם משפחה
+    %th.text-center מייל
+    %th.text-center כתובת
+    %th.text-center טלפון
+    %th.text-center קופת חולים
+    %th.text-center סיסמא
   - @patients.each do |patient|
     %tr
       %td= patient.id
       %td= patient.firstName
       %td= patient.lastName
       %td= patient.mail
-      %td= patient.therapist_id
       %td= patient.address
-      %td= patient.hmo
       %td= patient.phone
+      %td= patient.hmo
       %td= patient.password
-      %td= link_to 'הצג', patient
-      %td= link_to 'ערוך', edit_patient_path(patient)
-      %td= link_to 'מחק', patient, method: :delete, data: { confirm: 'האם אתה בטוח?' }
+      %td
+        = link_to 'הצג', patient, class: 'btn btn-default btn-sm', role: 'button'
+        = link_to 'ערוך', edit_patient_path(patient), class: 'btn btn-primary btn-sm', role: 'button'
+        = link_to 'מחק', patient, method: :delete, data: { confirm: 'למחוק מטופל?' }, class: 'btn btn-danger btn-sm', role: 'button'
 %br/
-= link_to 'מטופל חדש', new_patient_path

@@ -1,5 +1,14 @@
-%h1 ערוך מטופל
-= render 'form'
-= link_to 'הצג', @patient
-|
-\#{link_to 'חזור', patients_path}
+= render partial: 'menu/menu', locals: {active: "patients"}
+
+.row
+  .col-md-7.col-md-offset-4
+    .thumbnail
+      .caption
+        %h3.text-center
+          ערוך מטופל
+          %small
+            = link_to 'הצג', @patient, class: 'btn btn-primary', role: 'button'
+            \#{link_to 'חזור', patients_path, class: 'btn btn-default', role: 'button'}
+
+
+        %p= render 'form'

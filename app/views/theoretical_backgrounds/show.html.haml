@@ -1,16 +1,23 @@
-<!--%p#notice= notice-->
-%p
-  %b Id:
-  = @theoretical_background.id
-%p
-  %b Link:
-  = @theoretical_background.link
-%p
-  %b Pdf:
-  = @theoretical_background.pdf
-%p
-  %b Title:
-  = @theoretical_background.title
-= link_to 'ערוך', edit_theoretical_background_path(@theoretical_background)
-|
-\#{link_to 'חזור', theoretical_backgrounds_path}
+= render partial: 'menu/menu', locals: {active: "theoretical_backgrounds"}
+
+.row
+  .col-md-4.col-md-offset-4
+    .thumbnail
+      .caption
+        %h3.text-center
+          %b
+            = @theoretical_background.title
+        %p
+          %b מספר משימה
+          = @theoretical_background.id
+        %p
+          %b קובץ 
+          = @theoretical_background.pdf
+        %p
+          %b לינק וידאו
+          = @theoretical_background.link
+        %p.text-center
+          = link_to 'ערוך', edit_theoretical_background_path(@theoretical_background), class: 'btn btn-primary', role: 'button'
+          \#{link_to 'חזור', theoretical_backgrounds_path, class: 'btn btn-default', role: 'button'}        
+
+        %p#notice.text-center{:class => ('alert alert-success' unless notice.blank?)}= notice
