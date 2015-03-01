@@ -36,6 +36,12 @@ group :assets do
 end
 
 group :production do
+  adapter: postgresql
+  encoding: unicode
+  database: db/production.postgresql
+  pool: 5
+  username: test_postgre
+  password:
 end
 
 
