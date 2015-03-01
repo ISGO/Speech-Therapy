@@ -11,8 +11,14 @@
           %b מספר משימה
           = @voice_hygiene.id
         %p
-          %b קובץ 
-          = @voice_hygiene.path_pdf
+          %b הוראות
+          .panel.panel-default.description
+            .panel-body
+              = @voice_hygiene.description
+        %p
+          %b מסמך 
+          = link_to "/data/voice_hygiene/#{@voice_hygiene.path_pdf}", target: '_blank' do 
+            = @voice_hygiene.path_pdf
         %p.text-center
           = link_to 'ערוך', edit_voice_hygiene_path(@voice_hygiene), class: 'btn btn-primary', role: 'button'
           \#{link_to 'חזור', voice_hygienes_path, class: 'btn btn-default', role: 'button'}        

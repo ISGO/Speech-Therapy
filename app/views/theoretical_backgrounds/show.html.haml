@@ -11,11 +11,18 @@
           %b מספר משימה
           = @theoretical_background.id
         %p
-          %b קובץ 
-          = @theoretical_background.pdf
+          %b הוראות
+          .panel.panel-default.description
+            .panel-body
+              = @theoretical_background.description
+        %p
+          %b מסמך
+          = link_to "/data/theoretical/#{@theoretical_background.pdf}", target: '_blank' do 
+            = @theoretical_background.pdf
         %p
           %b לינק וידאו
-          = @theoretical_background.link
+          = link_to @theoretical_background.link, target: '_blank' do 
+            = @theoretical_background.link
         %p.text-center
           = link_to 'ערוך', edit_theoretical_background_path(@theoretical_background), class: 'btn btn-primary', role: 'button'
           \#{link_to 'חזור', theoretical_backgrounds_path, class: 'btn btn-default', role: 'button'}        

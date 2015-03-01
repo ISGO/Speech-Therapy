@@ -9,6 +9,16 @@
         - if @theoretical_background.errors[:title].any?
           .alert.alert-danger{:role => "alert"} 
             שגיאה!
+
+  .row
+    .form-group.col-md-12{:class => ("has-error" if @theoretical_background.errors[:description].any?)}
+      = f.label 'הוראות תרגיל', class: 'control-label col-md-2', for: :description
+      .col-md-10
+        = f.text_area :description, :class => "form-control", :rows => 6
+        - if @theoretical_background.errors[:description].any?
+          .alert.alert-danger{:role => "alert"} 
+            שגיאה!
+
   .row
     .form-group.col-md-12{:class => ("has-error" if @theoretical_background.errors[:link].any?)}
       = f.label 'לינק', class: 'control-label col-md-2', for: :link

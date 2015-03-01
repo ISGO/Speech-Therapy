@@ -37,6 +37,7 @@ class TheoreticalBackgroundsController < ApplicationController
   # GET /theoretical_backgrounds/1/edit
   def edit
     @theoretical_background = TheoreticalBackground.find(params[:id])
+  
   end
 
   # POST /theoretical_backgrounds
@@ -53,6 +54,10 @@ class TheoreticalBackgroundsController < ApplicationController
       # create the file path
       path = File.join(directory, file_name)
 
+      File.open(path, 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+
       params[:theoretical_background][:pdf] = uploaded_io.original_filename
     else
       params[:theoretical_background][:pdf] = ''
@@ -61,18 +66,12 @@ class TheoreticalBackgroundsController < ApplicationController
     
     @theoretical_background = TheoreticalBackground.new(params[:theoretical_background])
 
-    if @theoretical_background.invalid?
-      render('new')
-      return
-    end
-
-    File.open(path, 'wb') do |file|
-      file.write(uploaded_io.read)
-    end
+   
+    
 
     respond_to do |format|
       if @theoretical_background.save
-        format.html { redirect_to @theoretical_background, notice: 'רקע טאורתי חדש הוסף בהצלחה' }
+        format.html { redirect_to @theoretical_background, notice: 'רקע תאורטי חדש הוסף בהצלחה' }
         format.json { render json: @theoretical_background, status: :created, location: @theoretical_background }
       else
         format.html { render action: "new" }
@@ -88,7 +87,31 @@ class TheoreticalBackgroundsController < ApplicationController
   def update
     @theoretical_background = TheoreticalBackground.find(params[:id])
 
+    old_file = @theoretical_background[:pdf]
+
+    uploaded_io = params[:theoretical_background][:pdf]
+
+    unless uploaded_io.blank?
+
+      file_name =  params[:theoretical_background][:pdf].original_filename
+      directory = "public/data/theoretical"
+
+      # create the file path
+      path = File.join(directory, file_name)
+
+      File.open(path, 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+
+      params[:theoretical_background][:pdf] = uploaded_io.original_filename
+    else
+      params[:theoretical_background][:pdf] = old_file
+    end
+
+    
+
     respond_to do |format|
+
       if @theoretical_background.update_attributes(params[:theoretical_background])
         format.html { redirect_to @theoretical_background, notice: 'עודכן בהצלחה.' }
         format.json { head :no_content }

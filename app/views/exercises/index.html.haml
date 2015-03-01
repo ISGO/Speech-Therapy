@@ -9,15 +9,15 @@
 
 %table{:class => 'table table-hover text-center'}
   %tr
-    %th.text-center כותרת
     %th.text-center מספר תרגיל
+    %th.text-center כותרת
     %th.text-center סוג
     %th.text-center פתרון וידאו
     %th.text-center פעולות
   - @exercises.each do |exercise|
     %tr
+      %td= exercise.id
       %td= exercise.title
-      %td= exercise.exNumber
       %td= exercise.exType
       %td
         -if exercise.recVideo

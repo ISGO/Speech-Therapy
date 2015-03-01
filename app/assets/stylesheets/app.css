@@ -1,0 +1,28 @@
+textarea {
+	resize: none;
+	height: 6em;
+}
+
+.file-link:hover {
+	background: inherit;
+}
+
+.file-link:visited {
+	color: none;
+}
+
+.fixed{
+	position: fixed;
+}
+
+.ellipsis {
+	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	width: 300px;
+}
+
+.description {
+	height: 120px;
+	overflow-y: scroll;
+}
