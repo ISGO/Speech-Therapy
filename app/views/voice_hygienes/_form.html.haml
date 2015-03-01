@@ -1,25 +1,27 @@
-= render partial: 'menu/menu', locals: {active: "voice_hygienes"}
-
 = form_for(@voice_hygiene, {class: 'form-horizontal'}) do |f|
-  - if @voice_hygiene.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@voice_hygiene.errors.count, "error")
-        prohibited this voice_hygiene from being saved:
-      %ul
-        - @voice_hygiene.errors.full_messages.each do |msg|
-          %li= msg
-
+  
   .form-group.row
     = f.label 'כותרת', class: 'control-label col-md-2', for: :title
-    .col-md-10
+    .col-md-8
       = f.text_field :title, :class => "form-control"
+      
+  - if @voice_hygiene.errors[:title].any?
+    .row
+      .col-md-9.col-md-offset-1
+        .alert.alert-danger{:role => "alert"} 
+          שגיאה!
 
   .form-group.row
-    = f.label 'הוסף קובץ', class: 'control-label col-md-2', for: :path_pdf
-    .col-md-10
-      = f.number_field :path_pdf, :class => "form-control"
+    = f.label 'הוסף קובץ', class: 'control-label col-md-3', for: :path_pdf
+    .col-md-8
+      = f.file_field :path_pdf
     
+  - if @voice_hygiene.errors[:path_pdf].any?
+    .row
+      .col-md-9.col-md-offset-1
+        .alert.alert-danger{:role => "alert"} 
+          שגיאה בקובץ!
+
   .actions.text-center
     = f.submit 'בצע', class: 'btn btn-success'
 

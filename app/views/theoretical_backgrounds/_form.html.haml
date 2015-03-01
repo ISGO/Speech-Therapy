@@ -1,23 +1,33 @@
-= form_for(@theoretical_background) do |f|
-  - if @theoretical_background.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@theoretical_background.errors.count, "error")
-        prohibited this theoretical_background from being saved:
-      %ul
-        - @theoretical_background.errors.full_messages.each do |msg|
-          %li= msg
-  .field
-    = f.label :לינק
-    %br/
-    = f.text_field :link
-  .field
-    = f.label :pdf
-    %br/
-    = f.text_field :pdf
-  .field
-    = f.label :כותרת
-    %br/
-    = f.text_field :title
-  .actions
-    = f.submit 'אישור' 
+= form_for(@theoretical_background, {class: 'form-horizontal'}) do |f|
+  
+  .row
+    .form-group.col-md-12{:class => ("has-error" if @theoretical_background.errors[:title].any?)}
+      = f.label 'כותרת', class: 'control-label col-md-2', for: :title
+      .col-md-10
+        = f.text_field :title, :class => "form-control"
+
+        - if @theoretical_background.errors[:title].any?
+          .alert.alert-danger{:role => "alert"} 
+            שגיאה!
+  .row
+    .form-group.col-md-12{:class => ("has-error" if @theoretical_background.errors[:link].any?)}
+      = f.label 'לינק', class: 'control-label col-md-2', for: :link
+      .col-md-10
+        = f.text_field :link, :class => "form-control"
+
+        - if @theoretical_background.errors[:link].any?
+          .alert.alert-danger{:role => "alert"} 
+            שגיאה בלינק!
+
+  .row
+    .form-group.col-md-12{:class => ("has-error" if @theoretical_background.errors[:pdf].any?)}
+      = f.label 'מסמך', class: 'control-label col-md-2', for: :pdf
+      .col-md-10
+        = f.file_field :pdf
+
+        - if @theoretical_background.errors[:pdf].any?
+          .alert.alert-danger{:role => "alert"} 
+            שגיאה בקובץ!
+  .row
+    .actions.text-center
+      = f.submit 'אישור', class: 'btn btn-success'

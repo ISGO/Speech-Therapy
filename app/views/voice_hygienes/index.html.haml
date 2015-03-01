@@ -17,7 +17,8 @@
     %tr
       %td= voice_hygiene.id
       %td= voice_hygiene.title
-      %td= voice_hygiene.path_pdf
+      %td
+        = link_to 'מסמך', "/data/voice_hygiene/#{voice_hygiene.path_pdf}", target: '_blank'
       %td
         = link_to 'הצג', voice_hygiene, class: 'btn btn-default btn-sm', role: 'button'
         = link_to 'ערוך', edit_voice_hygiene_path(voice_hygiene), class: 'btn btn-primary btn-sm', role: 'button'

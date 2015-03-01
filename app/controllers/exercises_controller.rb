@@ -69,6 +69,11 @@ class ExercisesController < ApplicationController
     
     @exercise = Exercise.new(params[:exercise])
 
+    if @exercise.invalid?
+      render('new')
+      return
+    end
+
     respond_to do |format|
       if @exercise.save
         format.html { redirect_to @exercise, notice: 'התרגיל התווסף בהצלחה.' }

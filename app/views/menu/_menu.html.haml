@@ -6,7 +6,7 @@
         %span{:class => "icon-bar"}
         %span{:class => "icon-bar"}
         %span{:class => "icon-bar"}
-      = link_to 'SpeechTherapy', '#home' ,:class => "navbar-brand"
+      = link_to 'SpeechTherapy', '/' ,:class => "navbar-brand"
     .navbar-collapse.collapse
       %ul{:class => "nav navbar-nav"}
         %li{:class => ("active" if active == "login") || ("hide" unless session[:user_id].blank?)}= link_to 'כניסה למערכת', login_index_path
