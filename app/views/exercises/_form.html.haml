@@ -1,5 +1,3 @@
-= render partial: 'menu/menu', locals: {active: "exercises"}
-
 = form_for(@exercise, {class: 'form-horizontal'}) do |f|
   - if @exercise.errors.any?
     #error_explanation
