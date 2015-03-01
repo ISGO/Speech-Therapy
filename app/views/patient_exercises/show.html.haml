@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %b Patient:
+  = @patient_exercise.patient_id
+%p
+  %b Exercise type:
+  = @patient_exercise.exercise_type
+%p
+  %b Exercise:
+  = @patient_exercise.exercise_id
+%p
+  %b Is submitted:
+  = @patient_exercise.is_submitted
+%p
+  %b Is checked:
+  = @patient_exercise.is_checked
+= link_to 'Edit', edit_patient_exercise_path(@patient_exercise)
+|
+\#{link_to 'Back', patient_exercises_path}

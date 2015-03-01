@@ -1,4 +1,7 @@
 SpeechTherapy::Application.routes.draw do
+  resources :patient_exercises
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -14,6 +17,8 @@ SpeechTherapy::Application.routes.draw do
   #   resources :products
 
   root :to => 'login#index'
+
+  post '/ajax/patient_exercises' => 'PatientsController#patient_exercises'
 
   resources :login do
     collection do

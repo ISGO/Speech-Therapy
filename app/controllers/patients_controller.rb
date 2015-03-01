@@ -5,9 +5,21 @@ class PatientsController < ApplicationController
   def index
     @patients = Patient.all
 
+    @exercises = Exercise.all
+    @voice_hygienes = VoiceHygiene.all
+    @theoretical_backgrounds = TheoreticalBackground.all
+
+    #respond_to do |format|
+    #  format.html # index.html.erb
+    #  format.json { render json: @patients }
+    #end
+  end
+
+  def patient_exercises
+    id = params["id"].to_i
+
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @patients }
+      format.json {render :json => {:result => id}}
     end
   end
 

@@ -1,0 +1,31 @@
+= form_for(@patient_exercise) do |f|
+  - if @patient_exercise.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@patient_exercise.errors.count, "error")
+        prohibited this patient_exercise from being saved:
+      %ul
+        - @patient_exercise.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :patient_id
+    %br/
+    = f.number_field :patient_id
+  .field
+    = f.label :exercise_type
+    %br/
+    = f.text_field :exercise_type
+  .field
+    = f.label :exercise_id
+    %br/
+    = f.number_field :exercise_id
+  .field
+    = f.label :is_submitted
+    %br/
+    = f.check_box :is_submitted
+  .field
+    = f.label :is_checked
+    %br/
+    = f.check_box :is_checked
+  .actions
+    = f.submit
