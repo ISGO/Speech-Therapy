@@ -11,15 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150105110532) do
+ActiveRecord::Schema.define(:version => 20150301114905) do
 
   create_table "exercises", :force => true do |t|
     t.string   "title"
-    t.integer  "exNumber"
     t.string   "exType"
     t.boolean  "recVideo"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "description"
+    t.string   "image"
   end
 
   create_table "patients", :force => true do |t|
@@ -48,8 +49,9 @@ ActiveRecord::Schema.define(:version => 20150105110532) do
     t.string   "link"
     t.string   "pdf"
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "description"
   end
 
   create_table "to_do_behaviors", :force => true do |t|
@@ -62,8 +64,9 @@ ActiveRecord::Schema.define(:version => 20150105110532) do
   create_table "voice_hygienes", :force => true do |t|
     t.string   "title"
     t.string   "path_pdf"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "description"
   end
 
 end

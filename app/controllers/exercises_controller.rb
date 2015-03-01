@@ -67,6 +67,25 @@ class ExercisesController < ApplicationController
       return
     end
     
+    uploaded_io = params[:exercise][:image]
+
+    unless uploaded_io.blank?
+
+      file_name =  params[:exercise][:image].original_filename
+      directory = "public/data/exercise"
+
+      # create the file path
+      path = File.join(directory, file_name)
+
+      File.open(path, 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+
+      params[:exercise][:image] = uploaded_io.original_filename
+    else
+      params[:exercise][:image] = ''
+    end
+
     @exercise = Exercise.new(params[:exercise])
 
     if @exercise.invalid?
@@ -89,6 +108,27 @@ class ExercisesController < ApplicationController
   # PUT /exercises/1.json
   def update
     @exercise = Exercise.find(params[:id])
+
+    old_file = @exercise[:image]
+
+    uploaded_io = params[:exercise][:image]
+
+    unless uploaded_io.blank?
+
+      file_name =  params[:exercise][:image].original_filename
+      directory = "public/data/exercise"
+
+      # create the file path
+      path = File.join(directory, file_name)
+
+      File.open(path, 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+
+      params[:exercise][:image] = uploaded_io.original_filename
+    else
+      params[:exercise][:image] = old_file
+    end
 
     respond_to do |format|
       if @exercise.update_attributes(params[:exercise])

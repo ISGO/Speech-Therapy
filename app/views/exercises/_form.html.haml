@@ -1,35 +1,46 @@
 = form_for(@exercise, {class: 'form-horizontal'}) do |f|
-  - if @exercise.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@exercise.errors.count, "error")
-        prohibited this exercise from being saved:
-      %ul
-        - @exercise.errors.full_messages.each do |msg|
-          %li= msg
 
-  .form-group.row
-    = f.label 'כותרת', class: 'control-label col-md-2', for: :title
-    .col-md-10
-      = f.text_field :title, :class => "form-control"
+  .row
+    .form-group.col-md-12{:class => ("has-error" if @exercise.errors[:title].any?)}
+      = f.label 'כותרת', class: 'control-label col-md-2', for: :title
+      .col-md-10
+        = f.text_field :title, :class => "form-control"
+        - if @exercise.errors[:title].any?
+          .alert.alert-danger{:role => "alert"} 
+            שגיאה!
+ 
+  .row
+    .form-group.col-md-12{:class => ("has-error" if @exercise.errors[:exType].any?)}
+      = f.label 'סוג תרגיל', class: 'control-label col-md-2', for: :exType
+      .col-md-10
+        = f.text_field :exType, :class => "form-control"
+        - if @exercise.errors[:exType].any?
+          .alert.alert-danger{:role => "alert"} 
+            שגיאה!
 
-  .form-group.row
-    = f.label 'מספר תרגיל', class: 'control-label col-md-2', for: :exNumber
-    .col-md-10
-      = f.number_field :exNumber, :class => "form-control"
-    
+  .row
+    .form-group.col-md-12{:class => ("has-error" if @exercise.errors[:description].any?)}
+      = f.label 'הוראות תרגיל', class: 'control-label col-md-2', for: :description
+      .col-md-10
+        = f.text_area :description, :class => "form-control", :rows => 6
+        - if @exercise.errors[:description].any?
+          .alert.alert-danger{:role => "alert"} 
+            שגיאה!
 
-  .form-group.row
-    = f.label 'סוג תרגיל', class: 'control-label col-md-2', for: :exType
-    .col-md-10
-      = f.text_field :exType, :class => "form-control"
-    
-
-  .form-group.row
-    = f.label 'הגשת וידאו?', class: 'control-label col-md-2', for: :revVideo
-    .col-md-4
-      = f.check_box :recVideo, :class => "form-control pull-right"
-    
-
-  .actions.text-center
-    = f.submit 'בצע', class: 'btn btn-success'
+  .row
+    .form-group.col-md-12{:class => ("has-error" if @exercise.errors[:image].any?)}
+      = f.label 'תמונה', class: 'control-label col-md-2', for: :image
+      .col-md-10
+        = f.file_field :image
+        - if @exercise.errors[:image].any?
+          .alert.alert-danger{:role => "alert"} 
+            שגיאה בתמונה!
+  .row
+    .form-group.col-md-12
+      = f.label 'הגשת וידאו?', class: 'control-label col-md-2', for: :recVideo
+      .col-md-4
+        = f.check_box :recVideo, :class => "form-control pull-right"
+      
+  .row
+    .actions.text-center
+      = f.submit 'בצע', class: 'btn btn-success'

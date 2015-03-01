@@ -7,21 +7,28 @@
     %small
       = link_to 'הוסף משימה', new_theoretical_background_path, class: 'btn btn-success btn-sm', role: 'button'
 
-%table{:class => 'table table-hover text-center'}
+%table{:class => 'table table-hover col-md-10'}
   %tr
-    %th.text-center ID
-    %th.text-center כותרת
-    %th.text-center לינק קובץ
-    %th.text-center לינק וידאו
+    %th.text-center.col-md-1 ID
+    %th.text-center.col-md-2 כותרת
+    %th.text-center.col-md-4 הוראות
+    %th.text-center.col-md-1 לינק קובץ
+    %th.text-center.col-md-1 לינק וידאו
+    %th.text-center.col-md-3 פעולות 
     
   - @theoretical_backgrounds.each do |theoretical_background|
-    %tr
+    %tr.text-center
       %td= theoretical_background.id
       %td= theoretical_background.title
+      %td.text-center
+        %div.ellipsis{'data-toggle'=>'tooltip', 'data-placement' => 'bottom', :title => "#{theoretical_background.description}"}
+          = theoretical_background.description         
       %td
-        = link_to 'מסמך', "/data/theoretical/#{theoretical_background.pdf}", target: '_blank'
+        = link_to "/data/theoretical/#{theoretical_background.pdf}", target: '_blank', class: 'file-link text-primary' do
+          %i.glyphicon.glyphicon-file.text-primary
       %td
-        = link_to 'וידאו', theoretical_background.link, target: '_blank'
+        = link_to theoretical_background.link, target: '_blank', class: 'file-link text-danger' do
+          %i.glyphicon.glyphicon-facetime-video.text-danger
       %td
         = link_to 'הצג', theoretical_background, class: 'btn btn-default btn-sm', role: 'button'
         = link_to 'ערוך', edit_theoretical_background_path(theoretical_background), class: 'btn btn-primary btn-sm', role: 'button'
