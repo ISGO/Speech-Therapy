@@ -122,6 +122,32 @@ class PatientExercisesController < ApplicationController
         end
       end
 
-      render('new')
+      unless params[:voice].blank?
+        params[:voice].each do |exercise|
+          pe = PatientExercise.new
+
+          pe.patient_id = id
+          ex_id = exercise.gsub(/[^\d]/, '')
+          pe.exercise_id = ex_id.to_i
+          pe.exercise_type = "voice"
+
+          pe.save
+        end
+      end
+
+      unless params[:theoretical].blank?
+        params[:theoretical].each do |exercise|
+          pe = PatientExercise.new
+
+          pe.patient_id = id
+          ex_id = exercise.gsub(/[^\d]/, '')
+          pe.exercise_id = ex_id.to_i
+          pe.exercise_type = "theoretical"
+
+          pe.save
+        end
+      end
+
+      redirect_to(patient_exercises_submittedFiles_path)
   end
 end
