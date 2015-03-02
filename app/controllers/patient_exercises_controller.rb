@@ -7,6 +7,8 @@ class PatientExercisesController < ApplicationController
     @voice_hygienes = VoiceHygiene.all
     @theoretical_backgrounds = TheoreticalBackground.all
 
+    @patient = Patient.find(params[:patient_id])
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @patient_exercises }
@@ -82,5 +84,44 @@ class PatientExercisesController < ApplicationController
       format.html { redirect_to patient_exercises_url }
       format.json { head :no_content }
     end
+  end
+
+  def submittedFiles
+    @patient_exercise = PatientExercise.all
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @patient_exercise }
+    end
+
+  end
+
+  def submittedExercises
+    @patient_exercise = PatientExercise.all
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @patient_exercise }
+    end
+  end
+
+  def savePatientExercises
+      id = params[:patient_id]
+      @patient_exercise = PatientExercise.new
+
+      unless params[:exercise].blank?
+        params[:exercise].each do |exercise|
+          pe = PatientExercise.new
+
+          pe.patient_id = id
+          ex_id = exercise.gsub(/[^\d]/, '')
+          pe.exercise_id = ex_id.to_i
+          pe.exercise_type = "exercise"
+
+          pe.save
+        end
+      end
+
+      render('new')
   end
 end

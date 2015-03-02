@@ -1,4 +1,7 @@
 SpeechTherapy::Application.routes.draw do
+  get '/patient_exercises/submittedFiles' => 'patient_exercises#submittedFiles' # or match for older Rails versions
+  get '/patient_exercises/submittedExercises' => 'patient_exercises#submittedExercises' # or match for older Rails versions
+  post '/patient_exercises/savePatientExercises' => 'patient_exercises#savePatientExercises'
   resources :patient_exercises
 
 
@@ -18,14 +21,22 @@ SpeechTherapy::Application.routes.draw do
 
   root :to => 'login#index'
 
-  post '/ajax/patient_exercises' => 'PatientsController#patient_exercises'
+  
+  get "/patient_exercises/submittedFiles"
 
   resources :login do
     collection do
       get 'doLogout'
     end
   end
-  
+  resource :patient_exercises do
+   collection do
+     get 'submittedFiles'
+   end
+   collection do
+     get 'submittedExercises'
+   end
+ end
   resources :menu
   resources :footer
   resources :about
@@ -40,6 +51,7 @@ SpeechTherapy::Application.routes.draw do
   resources :voice_hygienes
 
   resources :patients
+
   # Sample resource route with options:
   #   resources :products do
   #     member do

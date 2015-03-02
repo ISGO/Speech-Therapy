@@ -31,18 +31,8 @@
         = link_to 'הצג', patient, class: 'btn btn-default btn-sm', role: 'button'
         = link_to 'ערוך', edit_patient_path(patient), class: 'btn btn-primary btn-sm', role: 'button'
         = link_to 'מחק', patient, method: :delete, data: { confirm: 'למחוק מטופל?' }, class: 'btn btn-danger btn-sm', role: 'button'
-        = link_to {'data-toggle' => "modal", 'data-target' => "#select-ex", :onclick => "patient_exercises(#{patient.id});"}, class: 'btn btn-warning btn-sm'
-          שבץ תרגילים
-%br/
+        = link_to 'שבץ תרגילים', {:controller => "patient_exercises", :action => "index", :patient_id => patient.id},class: 'btn btn-warning btn-sm'
+        
+          
 
-.modal.fade#select-ex{ :tabindex => "-1", :role => "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true"}
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %button.close{:type => "button", 'data-dismiss' => "modal", 'aria-label' => "Close"}
-          %span{'aria-hidden' => "true"}
-            &times;
-        %h4.modal-title#myModalLabel
-          שיבוץ תרגילים
-      .modal-body
-        = render partial: 'patient_exercises/index', locals: {}
+

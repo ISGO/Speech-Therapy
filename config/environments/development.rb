@@ -34,4 +34,14 @@ SpeechTherapy::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "sandbox4f0e453d29ae418fb38d07c33ed1a0c7.mailgun.org",
+    :user_name => "postmaster@sandbox4f0e453d29ae418fb38d07c33ed1a0c7.mailgun.org",
+    :password => "e979330e9bf72720d0a69ef771f7430c"
+  }
 end

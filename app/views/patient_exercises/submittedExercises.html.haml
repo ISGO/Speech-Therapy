@@ -1,0 +1,22 @@
+= render partial: 'menu/menu', locals: {active: "submittedExercises"}
+
+%h2
+  תרגילים שהוגשו
+%table{:class => 'table table-hover text-center'}
+  %tr
+    %th.text-center id Patient
+    %th.text-center Patient Name
+    %th.text-center Exercise type
+    %th.text-center Exercise
+
+  - @patient_exercise.each do |patient_exercise|
+  - patient = Patient.find(patient_exercise.patient_id)
+  
+    %tr
+      - if patient_exercise.is_submitted
+        %td= patient_exercise.patient_id
+        %td= patient.firstName + ' ' + patient.lastName
+        %td= patient_exercise.exercise_type
+        %td= patient_exercise.exercise_id
+%br/
+

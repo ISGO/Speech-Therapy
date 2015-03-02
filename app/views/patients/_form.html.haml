@@ -1,57 +1,55 @@
 
 = render partial: 'menu/menu', locals: {active: "patients"}
-.row
-  .col-md-7.col-md-offset-1
-    = form_for(@patient) do |f|
-      - if @patient.errors.any?
-        #error_explanation
-          %h2
-            = pluralize(@patient.errors.count, "error")
-            prohibited this patient from being saved:
-          %ul
-            - @patient.errors.full_messages.each do |msg|
-              %li= msg
-      .form-group.row
-        = f.label 'ת"ז', class: 'control-label col-md-3', for: :id
-        .col-md-6
-          = f.text_field :id, :class => "form-control"
 
-      .form-group.row
-        = f.label 'שם פרטי', class: 'control-label col-md-3', for: :firstName
-        .col-md-6
-          = f.text_field :firstName, :class => "form-control"
-        
+= form_for(@patient, {class: 'form-horizontal'}) do |f|
+  .row
+    .form-group.col-md-12{:class => ("has-error" if @patient.errors[:id].any?)}
+      = f.label 'ת"ז', class: 'control-label col-md-2', for: :id
+      .col-md-6
+        = f.text_field :id, :class => "form-control"
 
-      .form-group.row
-        = f.label 'שם משפחה', class: 'control-label col-md-3', for: :lastName
-        .col-md-6
-          = f.text_field :lastName, :class => "form-control"
-        
+  .row
+    .form-group.col-md-12{:class => ("has-error" if @patient.errors[:firstName].any?)}
+      = f.label 'שם פרטי', class: 'control-label col-md-2', for: :firstName
+      .col-md-6
+        = f.text_field :firstName, :class => "form-control"
+      
+  .row
+    .form-group.col-md-12{:class => ("has-error" if @patient.errors[:lastName].any?)}
+      = f.label 'שם משפחה', class: 'control-label col-md-2', for: :lastName
+      .col-md-6
+        = f.text_field :lastName, :class => "form-control"
+      
+  .row
+    .form-group.col-md-12{:class => ("has-error" if @patient.errors[:mail].any?)}
+      = f.label 'מייל', class: 'control-label col-md-2', for: :mail
+      .col-md-6
+        = f.email_field :mail, :class => "form-control"
 
-      .form-group.row
-        = f.label 'מייל', class: 'control-label col-md-3', for: :mail
-        .col-md-6
-          = f.email_field :mail, :class => "form-control"
+  .row
+    .form-group.col-md-12{:class => ("has-error" if @patient.errors[:address].any?)}
+      = f.label 'כתובת', class: 'control-label col-md-2', for: :address
+      .col-md-6
+        = f.text_field :address, :class => "form-control"
 
-      .form-group.row
-        = f.label 'כתובת', class: 'control-label col-md-3', for: :address
-        .col-md-6
-          = f.text_field :address, :class => "form-control"
-        
-      .form-group.row
-        = f.label 'מספר טלפון', class: 'control-label col-md-3', for: :phone
-        .col-md-6
-          = f.text_field :phone, :class => "form-control"
+  .row      
+    .form-group.col-md-12{:class => ("has-error" if @patient.errors[:phone].any?)}
+      = f.label 'מספר טלפון', class: 'control-label col-md-2', for: :phone
+      .col-md-6
+        = f.text_field :phone, :class => "form-control"
 
-      .form-group.row
-        = f.label 'קופת חולים', class: 'control-label col-md-3', for: :hmo
-        .col-md-6
-          = f.text_field :hmo, :class => "form-control"
+  .row
+    .form-group.col-md-12{:class => ("has-error" if @patient.errors[:hmo].any?)}
+      = f.label 'קופת חולים', class: 'control-label col-md-2', for: :hmo
+      .col-md-6
+        = f.text_field :hmo, :class => "form-control"
 
-      .form-group.row
-        = f.label 'סיסמא למטופל', class: 'control-label col-md-3', for: :password
-        .col-md-6
-          = f.password_field :password, :class => "form-control"
+  .row
+    .form-group.col-md-12{:class => ("has-error" if @patient.errors[:password].any?)}
+      = f.label 'סיסמא למטופל', class: 'control-label col-md-2', for: :password
+      .col-md-6
+        = f.password_field :password, :class => "form-control"
 
-      .actions.text-center
-        = f.submit 'הוסף מטופל', class: 'btn btn-success'
+  .row
+    .actions.text-center
+      = f.submit 'הוסף מטופל', class: 'btn btn-success'
