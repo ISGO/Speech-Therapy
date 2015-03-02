@@ -1,0 +1,40 @@
+= render partial: 'menu/menu', locals: {active: "patient_exercises"}
+%h2
+  שיבוץ תרגילים 
+  %small= @patient.firstName + ' ' + @patient.lastName
+= form_tag patient_exercises_savePatientExercises_path do
+  %table{:class => 'table table-hover text-center'}
+    %tr
+      %th Is Assigned
+      %th Exercise type
+      %th Exercise
+      %th Exercise title
+      
+     
+    - @exercises.each do |exercise|
+      %tr
+        %td
+          = check_box_tag "exercise[]", id: "#{exercise.id}"
+        %td exercise
+        %td= exercise.id
+        %td= exercise.title
+
+    - @voice_hygienes.each do |voice_hygiene|
+      %tr
+        %td
+          = check_box_tag "voice[]", id: "#{voice_hygiene.id}"
+        %td voice_hygiene
+        %td= voice_hygiene.id
+        %td= voice_hygiene.title
+    
+    - @theoretical_backgrounds.each do |theoretical_background|
+      %tr
+        %td
+          = check_box_tag "theoretical[]", id: "#{theoretical_background.id}"
+        %td theoretical_background
+        %td= theoretical_background.id
+        %td= theoretical_background.title
+  = hidden_field_tag 'patient_id', "#{@patient.id}"
+  = submit_tag "שמור"
+
+

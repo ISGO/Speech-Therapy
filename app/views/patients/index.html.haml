@@ -16,6 +16,7 @@
     %th.text-center טלפון
     %th.text-center קופת חולים
     %th.text-center סיסמא
+    %th.text-center פעולות    
   - @patients.each do |patient|
     %tr
       %td= patient.id
@@ -30,4 +31,8 @@
         = link_to 'הצג', patient, class: 'btn btn-default btn-sm', role: 'button'
         = link_to 'ערוך', edit_patient_path(patient), class: 'btn btn-primary btn-sm', role: 'button'
         = link_to 'מחק', patient, method: :delete, data: { confirm: 'למחוק מטופל?' }, class: 'btn btn-danger btn-sm', role: 'button'
-%br/
+        = link_to 'שבץ תרגילים', {:controller => "patient_exercises", :action => "index", :patient_id => patient.id},class: 'btn btn-warning btn-sm'
+        
+          
+
+

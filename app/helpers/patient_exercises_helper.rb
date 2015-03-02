@@ -1,0 +1,2 @@
+module PatientExercisesHelper
+end

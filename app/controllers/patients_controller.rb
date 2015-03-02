@@ -5,9 +5,21 @@ class PatientsController < ApplicationController
   def index
     @patients = Patient.all
 
+    @exercises = Exercise.all
+    @voice_hygienes = VoiceHygiene.all
+    @theoretical_backgrounds = TheoreticalBackground.all
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @patients }
+    end
+  end
+
+  def patient_exercises
+    id = params["id"].to_i
+
+    respond_to do |format|
+      format.json {render :json => {:result => id}}
     end
   end
 
@@ -45,6 +57,7 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.save
+        UserMailer.welcome_email(@patient).deliver
         format.html { redirect_to @patient, notice: 'מטופל נוצר בהצלחה.' }
         format.json { render json: @patient, status: :created, location: @patient }
       else
@@ -58,6 +71,21 @@ class PatientsController < ApplicationController
   # PUT /patients/1.json
   def update
     @patient = Patient.find(params[:id])
+
+    old_password = @patient[:password]
+    
+
+    uploaded_io = params[:patient][:password]
+
+    unless uploaded_io.blank?
+
+      #file_name =  params[:patient][:password]
+      
+
+      params[:patient][:password] = uploaded_io
+    else
+      params[:patient][:password] = old_password
+    end
 
     respond_to do |format|
       if @patient.update_attributes(params[:patient])
